@@ -69,9 +69,9 @@ btnadd = tkinter.Button(root,text = '+',font = (msfont,fontSize),fg = (btnFgColo
 btnadd.place(x = 3 * btnWidth,y = processH + resultH + 2 * btnHeight,width = btnWidth,height = btnHeight)
 btnequ = tkinter.Button(root,text = '=',bg = 'orange',font = (msfont,fontSize),fg = (btnFgColor),bd = btnBorderWidth,command = lambda :clickEqual())
 btnequ.place(x = 3 * btnWidth,y = processH + resultH + 3 * btnHeight,width = btnWidth,height = 2 * btnHeight)
-btnper = tkinter.Button(root,text = '%',font = (msfont,fontSize),fg = (btnFgColor),bd = btnBorderWidth,command = lambda:clickSign('%'))
+btnper = tkinter.Button(root,text = '%',font = (msfont,fontSize),fg = (btnFgColor),bd = btnBorderWidth,command = lambda:clickPer())
 btnper.place(x = 0,y = processH + resultH + 4 * btnHeight,width = btnWidth,height = btnHeight)
-btnpoint = tkinter.Button(root,text = '.',font = (msfont,fontSize),fg = (btnFgColor),bd = btnBorderWidth,command = lambda:clickSign('.'))
+btnpoint = tkinter.Button(root,text = '.',font = (msfont,fontSize),fg = (btnFgColor),bd = btnBorderWidth,command = lambda:clickNum('.'))
 btnpoint.place(x = 2 * btnWidth,y = processH + resultH + 4 * btnHeight,width = btnWidth,height = btnHeight)
 
 
@@ -126,6 +126,19 @@ def clickSign(sign):
         if 0 == len(a):				#如果是最后一个数，退格后变成0
             result.set(0)
 
+			
+#求百分值
+def clickPer():
+    curval = result.get()
+    lists.append(curval)
+    lists.append('/')
+    lists.append('100')
+    print(lists)
+    res = ''.join(lists)
+    print(res)
+    res = eval(res)
+    result.set(res)
+        
 
 #获取运算结果
 def clickEqual():
@@ -137,6 +150,7 @@ def clickEqual():
     lists.append(curval)
 
     proc = ''.join(lists)     		#将列表内容用join命令将字符串链接起来
+    print(proc)
     res = eval(proc)       			#用eval命令运算字符串中的内容
     res = '='+str(res)              #给运算结果前添加一个 ‘=’ 显示 
     res = res[0:10]                 #所有的运算结果取9位数
