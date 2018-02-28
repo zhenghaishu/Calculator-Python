@@ -133,11 +133,12 @@ def clickPer():
     lists.append(curval)
     lists.append('/')
     lists.append('100')
-    print(lists)
+	
     res = ''.join(lists)
-    print(res)
     res = eval(res)
     result.set(res)
+	
+    lists.clear()
         
 
 #获取运算结果
