@@ -151,7 +151,6 @@ def clickEqual():
     lists.append(curval)
 
     proc = ''.join(lists)     		#将列表内容用join命令将字符串链接起来
-    print(proc)
     res = eval(proc)       			#用eval命令运算字符串中的内容
     res = '='+str(res)              #给运算结果前添加一个 ‘=’ 显示 
     res = res[0:10]                 #所有的运算结果取9位数
