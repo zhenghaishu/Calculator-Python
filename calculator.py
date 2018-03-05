@@ -81,7 +81,6 @@ isSignClicked = False              	#是否点击了符号按纽
 isEqualClicked = False				#是否点击了等号按纽
 
 def clickNum(num):                   
-    global lists                    #将lists变量设为全局变量
     global isSignClicked			#将isSignClicked变量设为全局变量
     global isEqualClicked
 	
