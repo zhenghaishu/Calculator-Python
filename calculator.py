@@ -90,15 +90,20 @@ def clickNum(num):
 
     if True == isEqualClicked:
         result.set(0)
-        isEqualClicked = True
-		
+        isEqualClicked = False
+	
     #判断界面的数字是否为0
-    oldnum = result.get()          	#第一步
+    oldnum = result.get()      
     if '0' == oldnum:              	#如果界面上数字为0 则获取按下的数字
+        if '.' == num:
+            num = '0.'
         result.set(num)
-    else:                         	#如果界面上的数字不为0  则链接上新按下的数字
-        newnum = oldnum + num
-        result.set(newnum)         	#将按下的数字写到面板中
+    else:
+        if '.' in oldnum and '.' == num:  #如果之前已经输入过'.'，那么再输入'.'不会有反应
+	        pass 
+        else:	
+            newnum = oldnum + num
+            result.set(newnum)         	#将按下的数字写到面板中
 
 
 #点击运算符号（等号除外）
