@@ -152,6 +152,9 @@ def clickEqual():
 
     isEqualClicked = True
     curval = result.get()           #将界面上的数字添加到列表中
+	# 2*=4, 4*=16, 16*=256, 如果按了*=之前，有等号的话，要把等号去掉
+    if True == isSignClicked and 0 == curval.find('='): 
+        curval = curval[1:len(curval)]
     lists.append(curval)
 
     proc = ''.join(lists)     		#将列表内容用join命令将字符串链接起来
